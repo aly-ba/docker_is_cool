@@ -9,21 +9,32 @@ Ressources : https://mobaxterm.mobatek.net/
 ------------------------------------------------------------
 
 * Creer a repos avec :
+```
 	+ git *init*
+```
 * Tracker les changements avec : 
+```
 	+ git *status*
+```
 * Ajouter un ficher : 
+```
 	+ git add nomfichier ou . (pour ajouter tous les fichiers)
+```
 * Passer un commit avec :
+```
 	+ git commit -m "first commit" (avec commentaire l'option m)
-	+ Increased redundancy
+```
 * Ignorer des fichiers avec : 
+```
 	+ .gitignore(le fichier gitignore)
 	+ Test de fichier qui seront ignorés (Ajouter des fichiers à ignorer dans website.log)
-	+
+```
 * Lister les commits réaliser  avec :
+```
 	+ git log
 	+ git log -p -2
+```	
+
 1.1 Note Git 
 ------------------------------------------------------------
 
