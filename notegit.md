@@ -19,7 +19,11 @@ Ressources : https://mobaxterm.mobatek.net/
 	+ Increased redundancy
 * Ignorer des fichiers avec : 
 	+ .gitignore(le fichier gitignore)
-
+	+ Test de fichier qui seront ignorés (Ajouter des fichiers à ignorer dans website.log)
+	+
+* Lister les commits réaliser  avec :
+	+ git log
+	+ git log -p -2
 1.1 Note Git 
 ------------------------------------------------------------
 
