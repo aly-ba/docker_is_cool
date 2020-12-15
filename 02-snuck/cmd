@@ -1,0 +1,10 @@
+Commandes utilisées:
+
+git clone https://github.com/eazytrainingfr/simple-webapp-docker.git
+cd simple-webapp-docker/
+ls
+cd app/
+export SNYK_TOKEN=<mettez le votre>
+docker run –rm -it –env SNYK_TOKEN -v $(pwd):/app snyk/snyk:python-2.7
+docker build -t simple-webapp-docker .
+docker run –rm -it –env SNYK_TOKEN -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app snyk/snyk:docker snyk test –docker simple-webapp-docker –file=Dockerfile

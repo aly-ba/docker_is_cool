@@ -1,0 +1,146 @@
+  180  cde repo
+  181  cd repo
+  182  cd ./docker_is_cool
+  183  cd ../docker_is_cool
+  184  ls
+  185  cd web-app
+  186  ls
+  187  docker images
+  188  docker tag eb32d9351c79 eyebe77/webapp:v1.0
+  189  docker run --name webapp -d -p 80:80 webapp:v1.0
+  190  docker ps
+  191  docker run --name webapp2 -d -p 80:80 webapp:v1.0
+  192  docker ps
+  193  docker start 
+  194  docker start webapp2
+  195  docker ps
+  196  doker ps -a
+  197  docker ps --all
+  198  vim dockerfile 
+  199  cat dockerfile 
+  200  vim dockerfile 
+  201  cat dockerfile
+  202   docker build -t webapp:v2 .
+  203  docker images
+  204  docker rmi --force 54f1d0dddb7
+  205  docker rmi --force 054f1d0dddb7
+  206  vim dockerfile 
+  207   docker build -t webapp:v2 .
+  208  docker images
+  209  cd /var/www/html
+  210  cd /
+  211  ls
+  212  cd var
+  213  ls
+  214  cd html
+  215  cd www
+  216  cd ~
+  217  ls
+  218  cd docker_is_cool/
+  219  ls
+  220  cd wep-app
+  221  cd  web-app/
+  222  ls
+  223  vim dockerfile 
+  224  cd docker_is_cool/
+  225   docker build -t webapp:v2 .
+  226  docker images
+  227  docker rmi --force f5def9174a7c 8b36efea2a30
+  228  vim docker
+  229  vim dockerfile 
+  230  docker images
+  231   docker build -t webapp:v2 .
+  232  docker images
+  233  docker rmi --force b173bfbee351
+  234  vim dockerfile 
+  235   docker build -t webapp:v2 .
+  236  vim dockerfile 
+  237   docker build -t webapp:v2 .
+  238  docker ps --all
+  239  docker network create --drive --subnet=192.168.2.0/24 sharenetwork
+  240  docker network create --driver=bridge --subnet=192.168.2.0/24 sharenetwork
+  241  docker network ls
+  242  docker rm $(docker ps -a -q)
+  243  docker ps
+  244  docker pa 
+  245  docker ps a
+  246  docker ps -a
+  247  docker ps --all
+  248  docker ls
+  249  docker container ps
+  250  docker container ls
+  251  clera
+  252  clear
+  253  docker network ls
+  254  docker run -it --name ubuntu1 --network sharenetwork -d ubuntu /bin/bash
+  255  docker ps
+  256  ls
+  257  docker run -it --name ubuntu2 --network sharenetwork -d ubuntu /bin/bash
+  258  docker ps
+  259  docker inspect ubuntu2
+  260  docker ps
+  261  docker exec -it ubuntu1 /bin/bash
+  262  docker ps
+  263   docker stop ubunt2
+  264   docker stop ubuntu2
+  265   docker stop ubuntu1
+  266  docker ps
+  267  docker volume create --name share
+  268  docker run -t --name ubuntu1 -v share:tmp -d ubuntu /bin/bash
+  269  docker run -t --name ubuntu3 -v share:tmp -d ubuntu /bin/bash
+  270  docker run -t --name ubuntu3 -v share:/tmp -d ubuntu /bin/bash
+  271  docker run -t --name ubuntu4 -v share:/tmp -d ubuntu /bin/bash
+  272  docker exec it ubuntu3 /bin/bash
+  273  docker exec -it ubuntu3 /bin/bash
+  274  docker exec it ubuntu4 /bin/bash
+  275  docker exec -it ubuntu4 /bin/bash
+  276  docker exec -it ubuntu3 /bin/bash
+  277  docker ps
+  278  exit
+  279  docker ps 
+  280  docker stop ubuntu4
+  281  docker stop ubuntu3
+  282  docker images
+  283  dokcer container
+  284  dokcer containers
+  285  docker container
+  286  docker container ls
+  287  ls
+  288  cd repo
+  289  git clone https://github.com/diranetafen/static-website-example.git
+  290  s
+  291  ls
+  292  cd static-website-example/
+  293  git status
+  294  dokcer run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  295  docker run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  296  cd /
+  297  ls
+  298  cd   ~
+  299  ls
+  300  cd repo
+  301  ls
+  302  docker ps
+  303  docker run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  304  docker container 
+  305  docker ps --all
+  306  docker images
+  307  docker container 
+  308  docker run --name webserver2 -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  309  docker run --name webserver2 -p 8080:80 -d  -v  ${PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  310  docker ps
+  311  ls
+  312  ls static-website-example/
+  313  cat index
+  314  cd static-website-example/
+  315  ls
+  316  cat index.html 
+  317  docker ps
+  318  docker stop webserver2 
+  319  pwd
+  320  ls
+  321  cd repo
+  322  ls
+  323  history
+  324  history 147
+  325  history 146 >> historycommandpartie2

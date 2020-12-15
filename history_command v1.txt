@@ -1,0 +1,178 @@
+    1  ls
+    2  ssh-keygen -t rsa
+    3  ls
+    4  ls -a
+    5  cd .ssh
+    6  ls
+    7  cat id_rsa
+    8  cat id_rsa.pub
+    9  cd ~
+   10  ls
+   11  mkdir repo
+   12  git clone git@github.com:aly-ba/docker_is_cool.git
+   13  yum install git
+   14  pwd
+   15  git clone git@github.com:aly-ba/docker_is_cool.git
+   16  ls
+   17  cd docker_is_cool
+   18  ls
+   19  git status
+   20  git branch
+   21  git checouck firstbranche
+   22  git checkout -b firstbranche
+   23  git branch
+   24  git push
+   25  git push firstbranche
+   26  git push origin firstbranche
+   27  vi dockerscript.txt
+   28  git branch
+   29  yum install curl
+   30  curl -fsSL https://get.docker.com -o get-docker.sh
+   31  ls
+   32  sh get-docker.sh
+   33  docker
+   34  systemctl docker
+   35  systemctl status docker
+   36  yum install -u yum-utils
+   37  yum install -y yum-utils
+   38  sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   39  sh get-docker.sh
+   40  sudo yum-config-manager --enable docker-ce-nightly
+   41  yum install docker-ce docker-ce-cli containerd.io
+   42  yum install docker-ce docker-ce-cli containerd.io --skip-broken
+   43  docker
+   44  systemctl status docker
+   45  systemctl status docker.service
+   46  find docker
+   47  locate docker
+   48  docker ps
+   49  systemctl status docker.socket
+   50  systemctl status docker.soc
+   51  systemctl status docker.sock
+   52  sudo yum remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-engine
+   53   yum install -y yum-utils
+   54   yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   55   sudo yum-config-manager --enable docker-ce-nightly
+   56  sudo yum-config-manager --enable docker-ce-test
+   57  sudo yum-config-manager --disable docker-ce-nightly
+   58  sudo yum install docker-ce docker-ce-cli containerd.io
+   59  sudo yum install docker-ce docker-ce-cli containerd.io --allowerasing
+   60  systemctl status docker
+   61  systemctl enable docker
+   62  systemctl start docker
+   63  systemctl status docker
+   64  docker ps
+   65  docker ---version
+   66  docker run hello-world
+   67  docker run --name nginx  -d -p 80:80 nignx
+   68  docker run --name nginx -d -p 80:80 nignx
+   69  docker pull nginx
+   70  docker run --name nginx  -d -p 80:80 nignx
+   71  docker run --name nginx -d -p 80:80 nignx
+   72  docker run nginx
+   73  docker ps
+   74  docker run --name nginx -d -p 80:80 nignx
+   75  docker run --name nginx -d -p 80:80 nignx >> test.txt
+   76  cat test.txt
+   77   docker run nginx -d
+   78   docker run nginx -d -p 80:80
+   79   docker run  --name nginx -d -p 80:80
+   80  docker run --name nginx -d -p 80:75 nginx
+   81  docker ps
+   82*
+   83  firewall-cmd --permanent --zone=public --add-service=http
+   84  firewall-cmd --permanent --zone=public --add-service=https
+   85  firewall-cmd --reload
+   86  docker ps
+   87  docker stop nginx
+   88  docker ps
+   89   docker run  --name nginx -d -p 80:80
+   90   docker run  --name nginx -d -p 80:80 nginx
+   91*  docker run  --name nginx -d -p 80:8080
+   92   docker run  --name nginx -d -p 80:80 nginx2
+   93   docker run  --name nginx -d -p 80:80 nginx
+   94*
+   95   docker run  --name nginx2 -d -p 80:80 nginx
+   96  docker stop ngix2
+   97  docker stop nginx2
+   98   docker run  --name nginx3 -d -p 77:80 nginx
+   99  docker ps
+  100  docker ps -all
+  101  docker stop nginx3
+  102  docker stop nginx2
+  103  docker stop nginx
+  104  docker ps
+  105  ls
+  106  mkdir web-app
+  107  cd web-app
+  108  ls
+  109  vi dockerfile
+  110  ls
+  111  cat docker
+  112  cat dockerfile
+  113  git
+  114  clear
+  115  git clone https://github.com/diranetafen/static-website-example.git
+  116  ls -l
+  117  vi dockerfile
+  118  yum istall vim
+  119  yum install vim
+  120  vim dockerfile
+  121  docker build -t webapp:v1 
+  122  docker image
+  123  docker images
+  124  vim dockerfile
+  125  docker build -t webapp:v1.5
+  126  docker build -t webapp:v1.5 .
+  127  docker images
+  128  docker rm image 1803570ea515
+  129  docker rm  1803570ea515
+  130  docker rmi  1803570ea515
+  131  docker images
+  132  docker rmi 7baf28ea91eb
+  133  docker rmif 7baf28ea91eb
+  134  docker rmi --force 7baf28ea91e
+  135  docker rmi --force 7baf28ea91eb 7baf28ea91eb
+  136  docker rmi --force  f643c72bc252
+  137  docker iamges
+  138  docker imageges
+  139  docker images
+  140  docker rmi --force  1803570ea515
+  141*
+  142  cat dockerfile
+  143  docker build -t webapp:v1.0
+  144  docker build -t webapp:v1.0 .
+  145  docker images
+  146  docker rmi ---force 4b9ce7c8ce62
+  147  docker rmi --force 4b9ce7c8ce62
+  148*
+  149  docker images
+  150  vim dockerfile
+  151  docker build -t webapp:v1.0 .
+  152  docker images
+  153  docker rmi  --force a0a44db2fd3c
+  154  docker rmi  --force f643c72bc252
+  155  vim dockerfile
+  156  docker build -t webapp:v1.0 .
+  157  docker images
+  158  cat dockerfile
+  159  ls
+  160  docker run --name webapp -d -p 80:80 webapp:v1.0
+  161  docker ps
+  162  docker run --name webapp -d -p 80:80 webapp:v1.0
+  163  docker ps -aal
+  164  docker kill fe0101da8415
+  165  docker run --name webapp -d -p 77:80 webapp:v1.0
+  166  docker run --name webapp -d -p 77:175 webapp:v1.0
+  167  docker container
+  168  docker containers
+  169  dpcke ps
+  170  docker ps
+  171  docker login
+  172  dokcer images
+  173  docker images
+  174  docker tag eb32d9351c79 eyebe77/webapp:v1.0
+  175  docker push eyebe77/webapp:v1.0
+  176  history
+  
+  Remarque: docker-compose toujours dans le même repertoire que le docker-compose ou bien l'option -f pour spécifier le fichier.

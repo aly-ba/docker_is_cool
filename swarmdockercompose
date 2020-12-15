@@ -1,0 +1,324 @@
+   95  docker stop nginx2
+   96   docker run  --name nginx3 -d -p 77:80 nginx
+   97  docker ps
+   98  docker ps -all
+   99  docker stop nginx3
+  100  docker stop nginx2
+  101  docker stop nginx
+  102  docker ps
+  103  ls
+  104  mkdir web-app
+  105  cd web-app
+  106  ls
+  107  vi dockerfile
+  108  ls
+  109  cat docker
+  110  cat dockerfile
+  111  git
+  112  clear
+  113  git clone https://github.com/diranetafen/static-website-example.git
+  114  ls -l
+  115  vi dockerfile
+  116  yum istall vim
+  117  yum install vim
+  118  vim dockerfile 
+  119  docker build -t webapp:v1 .
+  120  docker image
+  121  docker images
+  122  vim dockerfile 
+  123  docker build -t webapp:v1.5
+  124  docker build -t webapp:v1.5 .
+  125  docker images
+  126  docker rm image 1803570ea515
+  127  docker rm  1803570ea515
+  128  docker rmi  1803570ea515
+  129  docker images
+  130  docker rmi 7baf28ea91eb
+  131  docker rmif 7baf28ea91eb
+  132  docker rmi --force 7baf28ea91e
+  133  docker rmi --force 7baf28ea91eb 7baf28ea91eb
+  134  docker rmi --force  f643c72bc252
+  135  docker iamges
+  136  docker imageges
+  137  docker images
+  138  docker rmi --force  1803570ea515
+  139  cat dockerfile
+  140  docker build -t webapp:v1.0
+  141  docker build -t webapp:v1.0 .
+  142  docker images
+  143  docker rmi ---force 4b9ce7c8ce62
+  144  docker rmi --force 4b9ce7c8ce62
+  145  docker images
+  146  vim dockerfile
+  147  docker build -t webapp:v1.0 .
+  148  docker images
+  149  docker rmi  --force a0a44db2fd3c
+  150  docker rmi  --force f643c72bc252
+  151  vim dockerfile
+  152  docker build -t webapp:v1.0 .
+  153  docker images
+  154  cat dockerfile 
+  155  ls
+  156  docker run --name webapp -d -p 80:80 webapp:v1.0
+  157  docker ps
+  158  docker run --name webapp -d -p 80:80 webapp:v1.0
+  159  docker ps -aal
+  160  docker kill fe0101da8415
+  161  docker run --name webapp -d -p 77:80 webapp:v1.0
+  162  docker run --name webapp -d -p 77:175 webapp:v1.0
+  163  docker container
+  164  docker containers
+  165  dpcke ps
+  166  docker ps
+  167  docker login
+  168  dokcer images
+  169  docker images
+  170  docker tag eb32d9351c79 eyebe77/webapp:v1.0
+  171  docker push eyebe77/webapp:v1.0
+  172  history 
+  173  history | count
+  174  history | wc
+  175  reboot
+  176  ls
+  177  cd repo
+  178  ls
+  179  cd .
+  180  cde repo
+  181  cd repo
+  182  cd ./docker_is_cool
+  183  cd ../docker_is_cool
+  184  ls
+  185  cd web-app
+  186  ls
+  187  docker images
+  188  docker tag eb32d9351c79 eyebe77/webapp:v1.0
+  189  docker run --name webapp -d -p 80:80 webapp:v1.0
+  190  docker ps
+  191  docker run --name webapp2 -d -p 80:80 webapp:v1.0
+  192  docker ps
+  193  docker start 
+  194  docker start webapp2
+  195  docker ps
+  196  doker ps -a
+  197  docker ps --all
+  198  vim dockerfile 
+  199  cat dockerfile 
+  200  vim dockerfile 
+  201  cat dockerfile
+  202   docker build -t webapp:v2 .
+  203  docker images
+  204  docker rmi --force 54f1d0dddb7
+  205  docker rmi --force 054f1d0dddb7
+  206  vim dockerfile 
+  207   docker build -t webapp:v2 .
+  208  docker images
+  209  cd /var/www/html
+  210  cd /
+  211  ls
+  212  cd var
+  213  ls
+  214  cd html
+  215  cd www
+  216  cd ~
+  217  ls
+  218  cd docker_is_cool/
+  219  ls
+  220  cd wep-app
+  221  cd  web-app/
+  222  ls
+  223  vim dockerfile 
+  224  cd docker_is_cool/
+  225   docker build -t webapp:v2 .
+  226  docker images
+  227  docker rmi --force f5def9174a7c 8b36efea2a30
+  228  vim docker
+  229  vim dockerfile 
+  230  docker images
+  231   docker build -t webapp:v2 .
+  232  docker images
+  233  docker rmi --force b173bfbee351
+  234  vim dockerfile 
+  235   docker build -t webapp:v2 .
+  236  vim dockerfile 
+  237   docker build -t webapp:v2 .
+  238  docker ps --all
+  239  docker network create --drive --subnet=192.168.2.0/24 sharenetwork
+  240  docker network create --driver=bridge --subnet=192.168.2.0/24 sharenetwork
+  241  docker network ls
+  242  docker rm $(docker ps -a -q)
+  243  docker ps
+  244  docker pa 
+  245  docker ps a
+  246  docker ps -a
+  247  docker ps --all
+  248  docker ls
+  249  docker container ps
+  250  docker container ls
+  251  clera
+  252  clear
+  253  docker network ls
+  254  docker run -it --name ubuntu1 --network sharenetwork -d ubuntu /bin/bash
+  255  docker ps
+  256  ls
+  257  docker run -it --name ubuntu2 --network sharenetwork -d ubuntu /bin/bash
+  258  docker ps
+  259  docker inspect ubuntu2
+  260  docker ps
+  261  docker exec -it ubuntu1 /bin/bash
+  262  docker ps
+  263   docker stop ubunt2
+  264   docker stop ubuntu2
+  265   docker stop ubuntu1
+  266  docker ps
+  267  docker volume create --name share
+  268  docker run -t --name ubuntu1 -v share:tmp -d ubuntu /bin/bash
+  269  docker run -t --name ubuntu3 -v share:tmp -d ubuntu /bin/bash
+  270  docker run -t --name ubuntu3 -v share:/tmp -d ubuntu /bin/bash
+  271  docker run -t --name ubuntu4 -v share:/tmp -d ubuntu /bin/bash
+  272  docker exec it ubuntu3 /bin/bash
+  273  docker exec -it ubuntu3 /bin/bash
+  274  docker exec it ubuntu4 /bin/bash
+  275  docker exec -it ubuntu4 /bin/bash
+  276  docker exec -it ubuntu3 /bin/bash
+  277  docker ps
+  278  exit
+  279  docker ps 
+  280  docker stop ubuntu4
+  281  docker stop ubuntu3
+  282  docker images
+  283  dokcer container
+  284  dokcer containers
+  285  docker container
+  286  docker container ls
+  287  ls
+  288  cd repo
+  289  git clone https://github.com/diranetafen/static-website-example.git
+  290  s
+  291  ls
+  292  cd static-website-example/
+  293  git status
+  294  dokcer run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  295  docker run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  296  cd /
+  297  ls
+  298  cd   ~
+  299  ls
+  300  cd repo
+  301  ls
+  302  docker ps
+  303  docker run --name webserver -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  304  docker container 
+  305  docker ps --all
+  306  docker images
+  307  docker container 
+  308  docker run --name webserver2 -p 8080:80 -d  -v  {PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  309  docker run --name webserver2 -p 8080:80 -d  -v  ${PWD}/static-website-example:/usr/local/apache/htdocs httpd
+  310  docker ps
+  311  ls
+  312  ls static-website-example/
+  313  cat index
+  314  cd static-website-example/
+  315  ls
+  316  cat index.html 
+  317  docker ps
+  318  docker stop webserver2 
+  319  pwd
+  320  ls
+  321  cd repo
+  322  ls
+  323  history
+  324  history 147
+  325  history 146 >> historycommandpartie2
+  326  cat historycommandpartie2 
+  327  clear
+  328  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  329  sudo chmod +x /usr/local/bin/docker-compose
+  330  docker-compose -v
+  331  docker-compose --versiob
+  332  docker-compose --version
+  333  ls
+  334  mkdir odoo
+  335  cd odoo
+  336  vi docker-compose.yml
+  337  cat  docker-compose.yml 
+  338  vi docker-compose.yml
+  339  cat  docker-compose.yml 
+  340  docker-compose up -d
+  341  vi docker-compose.yml
+  342  docker-compose up -d
+  343  cat docker-compose.yml 
+  344  vi docker-compose.yml 
+  345  cat docker-compose.yml 
+  346  docker-compose up
+  347  vi docker-compose.yml 
+  348  docker-compose up
+  349  vi docker-compose.yml 
+  350  docker-compose up
+  351  vi docker-compose.yml 
+  352  docker-compose up
+  353  vi docker-compose.yml 
+  354  docker-compose up
+  355  docker-compose ps
+  356  docker-compose logs
+  357  clear
+  358  docker ps
+  359  docker-compose --help
+  360  docker-compose ps
+  361  docker-compose restart odoo_db_1
+  362  docker-compose restart  odoo_db_1
+  363  docker ps
+  364  ls
+  365  ls -l
+  366  dockercompse restart
+  367  docker-compse restart
+  368  docker-compose restart
+  369  ssh root@192.168.0.10
+  370  exit
+  371  ls -l
+  372  docker swarm init
+  373  docker swarm init --advertise-addr 192.168.0.31
+  374  docker-compose --version
+  375  docker swarm init --advertise-addr 192.168.0.31
+  376  docker swarm show
+  377  docker swarm leave
+  378  docker swarm leave --force
+  379  docker swarm init --advertise-addr 192.168.0.31
+  380  sudo firewall-cmd --add-port=12376/tcp --permanent
+  381  sudo firewall-cmd --add-port=2376/tcp --permanent
+  382  sudo firewall-cmd --add-port=2377/tcp --permanent
+  383  sudo firewall-cmd --add-port=4789/udp --permanent
+  384  sudo firewall-cmd --add-port=7946/udp --permanent
+  385  sudo firewall-cmd --add-port=7946/tcp --permanent
+  386  sudo firewall-cmd --add-port=12376/tcp --permanent
+  387  sudo firewall-cmd --add-port=12379/tcp --permanent
+  388  sudo firewall-cmd --add-port=12380/tcp --permanent
+  389  sudo firewall-cmd --add-port=12381/tcp --permanent
+  390  sudo firewall-cmd --add-port=12385/tcp --permanent
+  391  sudo firewall-cmd --add-port=12382/tcp --permanent
+  392  sudo firewall-cmd --add-port=12386/tcp --permanent
+  393  sudo firewall-cmd --add-port=12387/tcp --permanent
+  394  sudo firewall-cmd --add-port=12384/tcp --permanent
+  395  sudo firewall-cmd --add-port=12383/tcp --permanent
+  396  sudo firewall-cmd --add-port=443/tcp --permanent
+  397  sudo firewall-cmd --reload
+  398  ip add
+  399  docker node ls
+  400     git clone https://github.com/dockersamples/example-voting-app.git
+  401  ls
+  402  cd example-voting-app/
+  403  ls
+  404  cat docker-stack.yml 
+  405  ls
+  406  cat architecture.png 
+  407  clear
+  408  docker stack deploy -c docker-s
+  409  docker stack deploy -c docker-s docker-stack.yml vote-stack
+  410  docker stack deploy -c  docker-stack.yml vote-stack
+  411  ls
+  412  cat
+  413  dokcer stack ls 
+  414  docker stack ls
+  415  docker stack ps votre stack
+  416  docker stack ps votre-stack
+  417  docker stack ps vote-stack
+  418  history 324 >> swarmdockercompose
