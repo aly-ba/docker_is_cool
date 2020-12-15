@@ -1,4 +1,4 @@
-# Ansible 2 for Configuration Management, Video 1.2
+# Ansible 2 for Configuration Management
 
 This folder contains an Ansible demo.
 
