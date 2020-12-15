@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Ansible 2 for Configuration Management, Video 1.4
+=======
+# Ansible 2 for Configuration Management
+>>>>>>> 6ed324c63355bae96107aff6ef2a3a49c967a70b
 
 This folder contains information for configuring Ansible to control remote
 machines.
