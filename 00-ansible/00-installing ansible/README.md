@@ -1,4 +1,4 @@
-# Ansible 2 for Configuration Management, Video 1.3
+# Ansible 2 for Configuration Management
 
 This folder contains instructions for installing Ansible.
 
