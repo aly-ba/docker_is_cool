@@ -1,0 +1,30 @@
+---
+- name: play1
+   hosts:all
+   tasks:
+   - name: create
+     file:
+       dest: ~/fic2
+       state: touch
+      tags :
+        - create
+
+- name: play2
+    hosts: all:!master2
+    tags:
+      - delete
+    tasks:
+    - name : delete
+      file:
+        dest: ~/toto.txt
+        state: absent
+
+- name : play3
+    hosts : master2
+    tasks: 
+    - name : delete
+      file: 
+        dest: ~/toto.txt
+        state: absent
+      tags :
+        - delete
