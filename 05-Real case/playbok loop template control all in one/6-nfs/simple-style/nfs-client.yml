@@ -1,0 +1,31 @@
+--- #This will set up the clients for the nfs share
+
+- hosts: clients
+  become: true
+  vars:
+    server_ip: '10.10.10.11'
+    server_folder: 'share'
+    client_folder: 'nfs-share'
+  tasks:
+    - name: "install nfs-common"
+      apt:
+        name: nfs-common
+        state: present
+    - name: "create nfs-share directory"
+      file:
+        path: "/{{ client_folder }}"
+        state: directory
+    - name: "mount the shared directory"
+      mount:
+        path: "/{{ client_folder }}"
+        src: "{{ server_ip }}:/{{ server_folder }}"
+        state: mounted 
+        fstype: nfs 
+    - name: "add a test file"
+      file:
+        path: "/{{ client_folder }}/test"
+        state: touch
+        owner: vagrant
+        group: vagrant
+       
+

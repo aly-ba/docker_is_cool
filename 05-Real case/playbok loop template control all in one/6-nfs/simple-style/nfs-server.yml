@@ -1,0 +1,34 @@
+--- #This playbook sets up the serving node of the nfs configuration
+
+- hosts: server
+  become: true
+  vars:
+   ips:
+     - "10.10.10.12"
+     - "10.10.10.13"
+  tasks:
+    - name: 'install nfs-kernel-server'
+      apt:
+        name: nfs-kernel-server
+        state: present
+    - name: 'enable the nfs-kernel-server'
+      service:
+        name: nfs-kernel-server
+        enabled: yes
+    - name: 'create shareable directory'
+      file:
+        path: /share
+        state: directory 
+        mode: 0777
+    - name: 'add the clients to the exports file'
+      template:
+        src: ./exports.j2
+        dest: /etc/exports 
+      notify:
+        - restart nfs server
+  handlers:
+    - name: restart nfs server
+      service:
+        name: nfs-kernel-server
+        state: restarted
+

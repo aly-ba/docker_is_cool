@@ -1,0 +1,22 @@
+---
+
+- hosts: webservers
+  become: true
+  tasks: 
+    - name: install git
+      apt:
+        name: git
+        state: present 
+    - name: install zsh 
+      apt:
+        name: zsh 
+        state: present 
+    - name: install vim
+      apt: 
+        name: vim
+        state: present 
+    - name: install nodejs
+      apt:
+        name: nodejs
+        state: present
+ 

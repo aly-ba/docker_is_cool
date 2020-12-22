@@ -1,0 +1,50 @@
+--- # This will start the changes from developer.yml to use roles
+
+- hosts: server 
+  become: yes
+  remote_user: vagrant
+  roles:
+    - nginx
+  tasks:
+    - name: "update a configuration file"
+      file: 
+        path: "stuff.txt"
+        state: touch
+      notify:
+        - restart nginx
+
+- hosts: devmachines
+  become: yes
+  remote_user: vagrant
+  roles:
+    - common
+
+- hosts: web-developers
+  become: yes
+  remote_user: vagrant
+  vars:
+    users:
+      - username: "cherokee"
+        shell: "/bin/bash"
+      - username: "aubri"
+        shell: "/bin/zsh"
+  roles:
+    - nodejs
+  tasks:
+    - name: "update"
+      shell: "ls -lah"
+
+- hosts: backend-developers
+  become: yes
+  remote_user: vagrant
+  vars:
+    users:
+      - username: "justin"
+        shell: "/bin/zsh"
+      - username: "daniel"
+        shell: "/bin/bash"
+  roles:
+    - flask
+  tasks:
+    - name: "update"
+      shell: "ls -lah"

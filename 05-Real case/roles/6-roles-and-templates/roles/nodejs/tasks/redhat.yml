@@ -1,0 +1,17 @@
+--- #redhat tasks for setting up nodejs
+
+
+- name: "set up the nodejs key"
+  rpm_key:
+    key: "https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL"
+    state: present
+- name: "add node source url for repo"
+  yum:
+    name: "https://rpm.nodesource.com/pub/el/7/x86_64/nodesource-release-el7-1.noarch.rpm"
+    state: present
+  
+- name: "install the nodejs setup"
+  yum:
+    name: nodejs
+    state: latest
+

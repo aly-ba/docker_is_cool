@@ -1,0 +1,22 @@
+---
+
+- hosts: webservers
+  become: true
+  vars_prompt:
+    - name: 'home'
+      prompt: "Where is the home directory?"
+      private: no
+    - name: 'pictures_folder'
+      prompt: "Where do you want to store the pictures?"
+      private: no
+    - name: 'password'
+      prompt: "What is the password?"
+      private: yes 
+  tasks:
+    - name: find the files in the home directory
+      shell: "ls -lah {{ home }}"
+    - name: create the picture folder
+      file:
+        path: "{{ pictures_folder }}"
+        state: directory
+

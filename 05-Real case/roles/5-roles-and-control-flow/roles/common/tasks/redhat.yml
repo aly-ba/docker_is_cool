@@ -1,0 +1,16 @@
+--- # redhat tasks for the common role 
+
+- name: "set up the EPEL repo"
+  yum:
+    name: "epel-release"
+    state: latest 
+
+- name: "install common packages"
+  yum:
+    name: "{{ item }}" 
+    state: latest
+  with_items:
+    - git
+    - zsh
+    - vim
+

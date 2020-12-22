@@ -1,0 +1,22 @@
+--- 
+
+- name: 'install nfs-kernel-server'
+  apt:
+    name: nfs-kernel-server
+    state: present
+- name: 'enable the nfs-kernel-server'
+  service:
+    name: nfs-kernel-server
+    enabled: yes
+- name: 'create shareable directory'
+  file:
+    path: /share
+    state: directory 
+    mode: 0777
+- name: 'add the clients to the exports file'
+  template:
+    src: templates/exports.j2
+    dest: /etc/exports 
+  notify:
+    - restart nfs server
+

@@ -1,0 +1,31 @@
+---
+
+- name: "install nginx"
+  apt:
+    name: nginx
+    state: latest
+- name: "start nginx"
+  service:
+    name: nginx
+    state: started
+- name: "create the folder"
+  file:
+    path: "/var/www/{{ nginx_server_name }}"
+    state: directory
+- name: "create the index file"
+  synchronize:
+    src: "index.html"
+    dest: "/var/www/{{ nginx_server_name }}/index.html"
+- name: "add the nginx configuration"
+  template:
+    src: "nginx.conf.j2"
+    dest: "/etc/nginx/sites-available/{{ nginx_server_name }}"
+- name: "activate the configuration"
+  file:
+    src: "/etc/nginx/sites-available/{{ nginx_server_name }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_server_name }}"
+    state: link
+  notify: restart nginx
+  
+
+

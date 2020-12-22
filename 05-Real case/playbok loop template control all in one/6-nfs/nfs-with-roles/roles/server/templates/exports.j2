@@ -1,0 +1,5 @@
+{% for ip in ips %}
+/share    {{ ip }}(rw,sync,no_root_squash,no_subtree_check)
+{% endfor %}
+
+

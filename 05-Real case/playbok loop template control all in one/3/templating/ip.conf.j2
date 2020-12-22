@@ -1,0 +1,14 @@
+## {{ ips | to_json }}
+{% for ip in ips %}
+ {{ ip }}
+{% endfor %}
+
+{% if True %}
+  This is true.
+{% endif %}
+
+{% if 'super' in some_data %}
+Superman 
+{% else %}
+Batman
+{% endif %}

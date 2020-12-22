@@ -1,0 +1,4 @@
+--- #The following is the variables that one would use for a RedHat type distribution
+
+#apache: httpd
+apache: apache2

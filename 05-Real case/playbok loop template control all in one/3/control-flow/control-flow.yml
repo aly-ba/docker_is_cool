@@ -1,0 +1,39 @@
+--- # This will demonstrate the use of control flow for conditional management
+
+- hosts: webservers
+  become: yes
+  vars:
+    users:
+      - "Justin"
+      - "Daniel"
+      - "Zach"
+      - "Aubri"
+      - "Cherokee"
+  vars_files:
+      - "./{{ ansible_os_family }}.variables.yml"
+  handlers:
+    - name: restart apache web server
+      service: 
+        name: "{{ apache }}"
+        state: restarted
+  tasks:
+    - name: "install apache2"
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian'
+    - name: "install httpd"
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'RedHat'
+    - name: "Remove previous configuration files"
+      file:
+        path: /tmp/users.xml
+        state: absent
+    - name: "Set up the user configuration"
+      template:
+        src: ./users.xml.j2
+        dest: /tmp/users.xml
+      when: '"Justin" in users'
+      notify: restart apache web server

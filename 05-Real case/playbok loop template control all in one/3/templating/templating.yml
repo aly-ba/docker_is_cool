@@ -1,0 +1,47 @@
+---
+
+- hosts: webservers
+  become: true
+  vars:
+    message: "Hello! Have a great Admin time!"
+    ips:
+      - "10.10.10.11"
+      - "10.10.10.12"
+    some_data: "cheese"
+    users: 
+      - name: Justin
+        username: justin
+        shell: /bin/zsh
+      - name: Alice
+        username: alice
+        shell: /bin/fsh
+      - { name: 'Ted', username: 'ted', shell: '/bin/bash' } 
+  tasks:
+    - name: install git 
+      apt:
+        name: git
+        state: present
+    - name: template a nice message for admins
+      template:
+        src: ./message.j2
+        dest: /tmp/message.txt
+    - name: set up the ips in the tmp folder
+      template:
+        src: ./ip.conf.j2
+        dest: /tmp/ip.conf
+    - name: create a list of users for the admins
+      template:
+        src: ./users.j2
+        dest: /tmp/users
+    - name: create the timkat user
+      user:
+        name: timkat
+        groups: sudo 
+        shell: /bin/bash
+    - name: create user xml list
+      template: 
+        src: ./users-xml.j2
+        dest: /opt/users.xml
+        owner: timkat
+        mode: 0400 
+         

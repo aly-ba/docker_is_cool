@@ -1,0 +1,11 @@
+[web-developers]
+node1
+
+[backend-developers]
+node2
+
+[devmachines:children]
+web-developers
+backend-developers
+
+

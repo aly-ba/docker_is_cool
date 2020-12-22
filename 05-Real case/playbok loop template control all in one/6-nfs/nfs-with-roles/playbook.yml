@@ -1,0 +1,11 @@
+--- #This will set up the NFS server and client architecture
+
+- hosts: clients
+  become: yes
+  roles:
+    - client
+
+- hosts: server
+  become: yes
+  roles:
+    - server

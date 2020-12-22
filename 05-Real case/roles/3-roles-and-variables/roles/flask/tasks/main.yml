@@ -1,0 +1,35 @@
+---
+
+
+- name: "install the python3.5 distribution"
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python3.5
+    - python3-pip
+- name: "ensure the pip executable is available"
+  file:
+    src: "/usr/bin/pip3"
+    dest: "/usr/bin/pip"
+    state: link
+- name: "install Flask python framework"
+  pip:
+    name: Flask
+    state: latest 
+- name: "set up the users"
+  user:
+    name: "{{ item.username }}"
+    groups:
+      - developers
+    shell: "{{ item.shell }}"
+  with_items: "{{ users }}" 
+- name: "make a code directory"
+  file:
+    path: "/home/{{ item.username }}/code"
+    state: directory
+    owner: "{{ item.username }}"
+    group: "{{ item.username }}" 
+  with_items: "{{ users }}"
+
+

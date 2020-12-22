@@ -1,0 +1,15 @@
+---
+
+- hosts: webservers
+  become: true
+  vars:
+    home: /home/vagrant
+    pictures_folder: /home/vagrant/pix
+  tasks:
+    - name: find the files in the home directory
+      shell: "ls -lah {{ home }}"
+    - name: create the picture folder
+      file:
+        path: "{{ pictures_folder }}"
+        state: directory
+

@@ -1,0 +1,15 @@
+[web-developers]
+node1
+redhat-node
+
+[backend-developers]
+node2
+
+[devmachines:children]
+web-developers
+backend-developers
+
+
+[server]
+node3
+

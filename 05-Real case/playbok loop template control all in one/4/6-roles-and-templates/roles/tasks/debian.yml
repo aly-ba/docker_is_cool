@@ -1,0 +1,14 @@
+---
+
+- name: "set up the nodejs key"
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present 
+- name: "set up the nodejs repository"
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_8.x xenial main"
+    state: present
+- name: "install the nodejs setup"
+  apt:
+    name: nodejs
+    state: latest

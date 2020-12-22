@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+    - name: "install git"
+      apt:
+        name: git
+        state: installed
+    - name: "Add required groups"
+      group: 
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - admin
+        - developers
+    - name: "add users"
+      user:
+        name: justin
+        shell: /bin/bash
+        groups: admin,developers
+        append: true 
+

@@ -1,0 +1,6 @@
+---
+
+server_ip: '10.10.10.11'
+server_folder: 'share'
+client_folder: 'nfs-share'
+

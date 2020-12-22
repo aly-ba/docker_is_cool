@@ -1,0 +1,45 @@
+---
+
+- hosts: local
+  become: true
+  tasks: 
+    - name: install git
+      apt:
+        name: git
+        state: installed
+    - name: install vim
+      apt:
+        name: vim
+        state: installed 
+
+- hosts: webservers
+  become: true
+  tasks:
+    - name: "install nginx"
+      apt:
+        name: nginx
+        state: installed
+
+- hosts: all
+  become: true
+  tasks:
+    - name: "add the neovim ppa"
+      apt_repository: 
+        repo: "ppa:neovim-ppa/stable"
+        state: present
+    - name: "install neovim"
+      apt:
+        name: neovim
+        state: installed
+        update_cache: yes
+    - name: "update alternative from vi to nvim"
+      alternatives:
+        name: vi
+        path: /usr/bin/nvim
+        priority: 60
+    - name: "update alternative for vim to nvim"
+      alternatives:
+        name: vim
+        path: /usr/bin/nvim
+        priority: 60 
+      

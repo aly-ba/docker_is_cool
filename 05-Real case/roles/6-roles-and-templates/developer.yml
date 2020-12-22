@@ -1,0 +1,100 @@
+--- #This playbook is demonstrates setting up of different development machines
+
+- hosts: devmachines 
+  become: yes
+  remote_user: vagrant
+  tasks:
+    - name: "install common packages"
+      apt:
+        name: "{{ item }}"
+        present: latest
+      with_items:
+        - git
+        - zsh
+        - vim
+    - name: "add the developer group"
+      group:
+        name: "developers"
+        state: present
+  
+- hosts: web-developers
+  become: yes
+  remote_user: vagrant
+  vars:
+    users:
+      - username: "cherokee"
+        shell: "/bin/bash"
+      - username: "aubri"
+        shell: "/bin/zsh"
+  tasks:
+    - name: "set up the nodejs key"
+      apt_key:
+        url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+        state: present 
+    - name: "set up the nodejs repository"
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_8.x xenial main"
+        state: present
+    - name: "install the nodejs setup"
+      apt:
+        name: nodejs
+        state: latest
+    - name: "set up the users"
+      user:
+        name: "{{ item.username }}"
+        groups:
+          - developers
+        shell: "{{ item.shell }}"
+      with_items: "{{ users }}" 
+    - name: "make a code directory"
+      file:
+        path: "/home/{{ item.username }}/code"
+        state: directory
+        owner: "{{ item.username }}"
+        group: "{{ item.username }}" 
+      with_items: "{{ users }}"
+
+
+- hosts: backend-developers
+  become: yes
+  remote_user: vagrant
+  vars:
+    users:
+      - username: "justin"
+        shell: "/bin/zsh"
+      - username: "daniel"
+        shell: "/bin/bash"
+  tasks:
+    - name: "install the python3.5 distribution"
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - python3.5
+        - python3-pip
+    - name: "ensure the pip executable is available"
+      file:
+        src: "/usr/bin/pip3"
+        dest: "/usr/bin/pip"
+        state: link
+    - name: "install Flask python framework"
+      pip:
+        name: Flask
+        state: latest 
+    - name: "set up the users"
+      user:
+        name: "{{ item.username }}"
+        groups:
+          - developers
+        shell: "{{ item.shell }}"
+      with_items: "{{ users }}" 
+    - name: "make a code directory"
+      file:
+        path: "/home/{{ item.username }}/code"
+        state: directory
+        owner: "{{ item.username }}"
+        group: "{{ item.username }}" 
+      with_items: "{{ users }}"
+
+
+  

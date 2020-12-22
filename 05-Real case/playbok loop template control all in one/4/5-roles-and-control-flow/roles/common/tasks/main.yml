@@ -1,0 +1,12 @@
+--- # These are the main task for setting up the common role for developers
+- include_tasks: "debian.yml"
+  when: "ansible_os_family == 'Debian'"
+
+- include_tasks: "redhat.yml"
+  when: "ansible_os_family == 'RedHat'"
+
+- name: "add the developer group"
+  group:
+    name: "developers"
+    state: present
+
