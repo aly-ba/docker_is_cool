@@ -1,0 +1,32 @@
+---
+- hosts: all
+  remote_user: ansible
+  vars:
+    servers:
+      windows:
+        win10:
+          function: ad
+          environment: prod
+        win7:
+          function: sql
+          environment: test
+      linux:
+        redhat:
+          function: web
+          environment: test
+        debian:
+          function: db
+          environment: prod
+  tasks:
+  - name: iterate over windows array
+    file:
+      name: '/home/ansible/{{item.key}}-{{item.value.function}}'
+      state: '{{file_state}}'
+    with_dict: '{{servers.windows}}'
+
+  - name: iterate over linux array
+    file:
+      name: '/home/ansible/{{item.key}}-{{item.value.function}}'
+      state: '{{file_state}}'
+    with_dict: '{{servers.linux}}'
+    when: 'item.value.environment == "prod"'

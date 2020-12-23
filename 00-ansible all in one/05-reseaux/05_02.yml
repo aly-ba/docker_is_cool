@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    netgw: 192.168.57.1
+    netnm: 255.255.255.0
+    net3nm: 192.168.58.1/28
+  tasks:
+  - set_fact: net2="{{netgw}}/{{netnm}}"
+
+  - set_fact: net2cidr="{{net2|ipaddr('host/prefix')}}"
+  - debug:
+      msg: "net2 is {{net2}}, gateway is {{net2cidr}}"
+  
+  - name: "Convertir une adresse IP en entier et l'incrementer de 1"
+    set_fact: net2int="{{netgw|ipaddr('int') + 1}}"
+
+  - name: ""
+    set_fact: net2="{{net2int|ipv4('address')}}/{{net2cidr|ipaddr('prefix')}}"
+  - debug:
+      msg: "net2 is now {{net2}}"
+  
+  - name: "Effectuer une operation mathematique sur une IP: ici faire +5"
+    set_fact: net3="{{net2int|ipmath(5)}}"
+  - debug:
+      msg: "net3 is now {{net3}}"
+  
+  - name: "Extraire une plage IPs suivant une IP de network et un masque"
+    set_fact: range="{{net3nm|ipaddr('range_usable')}}"
+  - debug:
+      msg: "range :  {{range}}"

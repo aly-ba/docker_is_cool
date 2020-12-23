@@ -1,0 +1,30 @@
+---
+- name: Add Network 
+  hosts: web1
+  become: yes
+  handlers:
+    - name: "Restart network service"
+      service:
+        name: "network"
+        state: "restarted"
+  tasks:
+  - name: install needed network manager libs 
+    package:
+      name:
+        - NetworkManager-glib
+        - nm-connection-editor
+        - libsemanage-python
+        - policycoreutils-python
+      state: present
+
+  - name: Add an Ethernet connection with static IP configuration
+    nmcli:
+      conn_name: enp0s9
+      ifname: enp0s9
+      type: ethernet
+      ip4: 192.168.57.102/24
+      gw4: 192.168.57.1
+      state: present
+      autoconnect: yes
+    notify: [ "Restart network service"]
+

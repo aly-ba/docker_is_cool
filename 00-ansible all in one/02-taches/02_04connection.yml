@@ -1,0 +1,10 @@
+---
+- name: play1
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: creation via connexion locale
+    file:
+      dest: /home/ansible/Chapitre_02/fic3
+      state: touch
+

@@ -1,0 +1,17 @@
+---
+  - hosts: web
+    vars:
+      hostname: control
+    tasks:
+    - file:
+        dest: '{{ha_config}}'
+        state: '{{file_state}}'
+      when: ha_config is defined
+
+    - shell: /usr/bin/uptime
+      register: result
+
+    - name: "Resultat de uptime"
+      debug:
+        msg: "{{result}}"
+        verbosity: 2

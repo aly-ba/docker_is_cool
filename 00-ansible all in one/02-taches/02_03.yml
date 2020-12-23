@@ -1,0 +1,30 @@
+---
+- name: play1
+  hosts: all
+  tasks:
+  - name: create
+    file:
+      dest: /home/ansible/fic2
+      state: touch
+    tags:
+      - create
+
+- name: play2
+  hosts: all:!haproxy
+  tags:
+    - delete
+  tasks:
+  - name: delete
+    file:
+      dest: /home/ansible/fic2
+      state: absent
+
+- name: play3
+  hosts: haproxy
+  tasks:
+  - name: delete
+    file:
+      dest: /home/ansible/fic2
+      state: absent
+    tags:
+      - delete

@@ -1,0 +1,11 @@
+[web]
+web1        ansible_connection=ssh  ansible_user=ansible
+web2        ansible_connection=ssh  ansible_user=ansible
+[ha]
+haproxy
+[all:vars]
+all_file=/home/ansible/all_file
+[web:vars]
+web_file=/home/ansible/index.html
+[ha:vars]
+ha_config=/home/ansible/haproxy.cfg

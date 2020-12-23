@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    test_list: ['192.24.2.1', 'host.fqdn', '::1', '192.168.32.0/24', 'fe80::100/10', True, '', '42540766412265424405338506004571095040/64']
+    gw: 192.168.57.1
+    nm: 255.255.255.0
+  tasks:
+  - name: extraire toutes les IPs de type host
+    set_fact: iph="{{ test_list | ipaddr('host') }}"
+  - debug:
+      msg: "Toutes les IPs host {{iph}}"
+
+  - name: extraire toutes les IPs network
+    set_fact: ipn="{{ test_list | ipaddr('network') }}"
+  - debug:
+      msg: "Toutes les IPs network {{ipn}}"
+
+  - name: extraire uniquement les IPs V4
+    set_fact: ipv4="{{ test_list | ipv4('address') }}"
+  - debug:
+      msg: "Toutes les ipv4 {{ipv4}}"
+
+
+  - set_fact: net2="{{gw}}/{{nm}}"
+  - name: utiliser la notation CIDR
+    set_fact: net2cidr={{net2|ipaddr('host/prefix')}}
+  - debug:
+      msg: "GW et NM {{net2}}, en CIDR {{net2cidr}}"
+

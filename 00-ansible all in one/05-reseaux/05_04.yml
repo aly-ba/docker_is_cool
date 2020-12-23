@@ -1,0 +1,19 @@
+---
+- hosts: web1
+  vars:
+    network: 192.168.57.100/24
+    host: 6
+  tasks:
+  - set_fact: hostint="{{network|ipaddr('network')|ipaddr('int')}}"
+  - set_fact: addrint="{{host+hostint|int()}}"
+  - set_fact: address="{{addrint|ipv4('address')}}"
+  - set_fact: netmask="{{network|ipaddr('netmask')}}"
+  - set_fact: gatewayint={{hostint|int()+1}}
+  - set_fact: gateway="{{gatewayint|ipv4('address')}}"
+  - name: upload network template for internal bridge
+    template:
+      src: templates/ifcfg-enp0s9.j2
+      dest: /home/samir/ifcfg-enp0s9
+    tags:
+      - create
+

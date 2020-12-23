@@ -1,0 +1,24 @@
+---
+- hosts: web
+  remote_user: ansible
+  tasks:
+  - name: create a web file
+    file:
+      dest: '{{web_file}}'
+      state: '{{file_state}}'
+
+- hosts: haproxy
+  remote_user: ansible
+  tasks:
+  - name: create a haproxy file
+    file:
+      dest: '{{ha_config}}'
+      state: '{{file_state}}'
+
+- hosts: all
+  remote_user: ansible
+  tasks:
+  - name: all systems should have a file
+    file:
+      dest: '{{all_file}}'
+      state: '{{file_state}}'

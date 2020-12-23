@@ -1,0 +1,22 @@
+---
+- hosts: web
+  tasks:
+  - name: create the secure password in a file
+    template:
+      src: templates/password.j2
+      dest: /home/ansible/password
+      mode: 0600
+    tags:
+      - create
+  - name: clean up the secure passwords file
+    file:
+      name: /home/ansible/password
+      state: absent
+    tags:
+      - destroy
+  - name: debug the password that was encrypted
+    debug:
+      msg: 'the password is {{password}}'
+    tags:
+      - create
+      - destroy

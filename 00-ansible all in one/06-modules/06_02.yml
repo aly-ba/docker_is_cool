@@ -1,0 +1,17 @@
+---
+  - hosts: haproxy
+    gather_facts: no
+    vars:
+      ha_config: /home/ansible/hproxy.cfg
+    tasks:
+    - file:
+        dest: '{{ha_config}}'
+        state: touch
+      when: ha_config is defined
+
+    - shell: /usr/bin/uptime
+      register: result
+
+    - name: "Resultat de uptime"
+      debug:
+        msg: "{{result}}"

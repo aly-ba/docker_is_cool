@@ -1,0 +1,23 @@
+---
+- hosts: all
+  remote_user: ansible
+  vars:
+    files: [fic1,fic2,fic3]
+    dirs: 
+      - rep1
+      - rep2
+      - rep3
+  tasks:
+  - name: create files for Redhat
+    file:
+      dest: '/home/ansible/{{item}}'
+      state: '{{file_state}}'
+    with_items: '{{files}}'
+    when: ansible_os_family == "RedHat"
+
+  - name: create directories for Redhat
+    file:
+      dest: '/home/ansible/{{item}}'
+      state: '{{dir_state}}'
+    with_items: '{{dirs}}'
+    when: ansible_os_family == "RedHat"

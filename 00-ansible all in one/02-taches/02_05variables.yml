@@ -1,0 +1,22 @@
+---
+  - hosts: web
+    tasks:
+    - name: create a web file
+      file:
+        dest: '{{web_file}}'
+        state: '{{file_state}}'
+  
+  - hosts: ha
+    tasks:
+    - file:
+        dest: '{{ha_config}}'
+        state: '{{file_state}}'
+      when: ha_config is defined
+  
+  - hosts: all
+    tasks:
+    - file:
+        dest: '{{all_file}}'
+        state: '{{file_state}}'
+        
+        

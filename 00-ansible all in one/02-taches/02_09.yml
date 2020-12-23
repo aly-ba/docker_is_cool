@@ -1,0 +1,15 @@
+---
+- hosts: web
+  remote_user: ansible
+  tasks:
+  - name: first create
+    file:
+      dest: /home/ansible/fic1
+      state: '{{file_state}}'
+    when: hostvars[inventory_hostname]['inventory_hostname'] == 'web1'
+
+  - name: second create
+    file:
+      dest: /home/ansible/fic2
+      state: '{{file_state}}'
+    when: inventory_hostname == 'web2'

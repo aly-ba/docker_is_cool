@@ -1,0 +1,26 @@
+---
+- name: Installation des serveurs web
+  hosts: web
+  vars:
+    apache_port: 80
+    tomcat_port: 8080
+    apache_max_keepalive: 25
+  remote_user: ansible
+  become: yes
+  tasks:
+  - name: Install du package apache
+    yum:
+      name: httpd
+      state: latest
+  - name: Start du service apache
+    service:
+      name: httpd
+      state: started
+  - name: enable selinux
+    command: /sbin/setenforce 1
+  - name: debug
+    debug:
+      msg: "Ceci n'apparait qu'avec l'option -vv+"
+      verbosity: 2
+    tags: 
+    - debug
